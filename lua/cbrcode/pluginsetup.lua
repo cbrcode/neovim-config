@@ -1,0 +1,5 @@
+require('cbrcode.plugins.treesitter')
+require('cbrcode.plugins.indent')
+require('cbrcode.plugins.lsp')
+require('cbrcode.plugins.autopairs')
+require('cbrcode.plugins.line')
