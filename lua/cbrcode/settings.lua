@@ -9,13 +9,21 @@ o.updatetime=200
 o.scrolloff=8
 o.sidescrolloff=8
 
+-- theme settings
+g.tokyonight_style = "night"
+
+
+
 -- ui
 o.number = true
 o.relativenumber = true
 o.signcolumn = 'yes'
 o.cursorline = true
---vim.cmd('colorscheme vscode')
-vim.cmd('set noshowmode')
+math.randomseed(os.time())
+local themes = {'tokyonight', 'doom-one', 'nord', 'gotham'}
+local theme = string.format('color %s', themes[math.random(1,#themes)])
+vim.cmd(theme)
+--vim.cmd('set noshowmode')
 o.cmdheight = 2
 o.laststatus=3
 --
@@ -23,13 +31,13 @@ o.laststatus=3
 o.expandtab = true
 o.wrap = false
 o.tabstop = 4
-o.shiftwidth = 0
+o.shiftwidth = 4
 o.softtabstop = 0
 o.clipboard  = 'unnamedplus'
 o.nowrap = true
 o.smartcase = true
 o.ignorecase = true
-o.smartindent = true
+o.autoindent = true
 
 -- keybindings
 g.mapleader = ' '
