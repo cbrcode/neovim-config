@@ -1,0 +1,7 @@
+--require("bufferline").setup{
+--    options = {
+--        mode = "buffers",
+--        tab_size = 25,
+--        diagnostics = "nvim-lsp",
+--    }
+--}

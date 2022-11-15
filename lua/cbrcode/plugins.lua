@@ -24,11 +24,13 @@ return require('packer').startup({
         ----------------------------------------
 
         -- use('Mofiqul/vscode.nvim')
-        use({'nvim-lualine/lualine.nvim',
-            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-        })
-        use('mhinz/vim-startify')
+        --use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+        use 'tamton-aquib/staline.nvim'
         use('tpope/vim-fugitive')
+        --use('nvim-lualine/lualine.nvim')
+        --use('sainnhe/everforest')
+        use('sainnhe/gruvbox-material')
+        --use('kvrohit/mellow.nvim')
         use {
           "nvim-neo-tree/neo-tree.nvim",
             branch = "v2.x",
@@ -38,74 +40,80 @@ return require('packer').startup({
               "MunifTanjim/nui.nvim",
             }
         }
-        use('whatyouhide/vim-gotham')
-        use('folke/tokyonight.nvim')
-        use {
-            'sunjon/shade.nvim',
-            config = function()
-                require("shade").setup()
-            end
-        }
-        use {
-          "folke/trouble.nvim",
-          requires = "kyazdani42/nvim-web-devicons",
+        --use('NTBBloodbath/doom-one.nvim')
+        use({
+          "folke/noice.nvim",
           config = function()
-            require("trouble").setup {}
-          end
-        }
-        use('arcticicestudio/nord-vim')
-        use('NTBBloodbath/doom-one.nvim')
-        --use({
-        --    'NTBBloodbath/doom-one.nvim',
-        --    setup = function()
-        --        -- Add color to cursor
-        --        vim.g.doom_one_cursor_coloring = false
-        --        -- Set :terminal colors
-        --        vim.g.doom_one_terminal_colors = true
-        --        -- Enable italic comments
-        --        vim.g.doom_one_italic_comments = false
-        --        -- Enable TS support
-        --        vim.g.doom_one_enable_treesitter = true
-        --        -- Color whole diagnostic text or only underline
-        --        vim.g.doom_one_diagnostics_text_color = false
-        --        -- Enable transparent background
-        --        vim.g.doom_one_transparent_background = false
+            require("noice").setup()
+          end,
+        })
 
-        --        -- Pumblend transparency
-        --        vim.g.doom_one_pumblend_enable = false
-        --        vim.g.doom_one_pumblend_transparency = 20
+        use('b0o/incline.nvim')
 
-        --        -- Plugins integration
-        --        vim.g.doom_one_plugin_neorg = false
-        --        vim.g.doom_one_plugin_barbar = false
-        --        vim.g.doom_one_plugin_telescope = true
-        --        vim.g.doom_one_plugin_neogit = true
-        --        vim.g.doom_one_plugin_nvim_tree = true
-        --        vim.g.doom_one_plugin_dashboard = false
-        --        vim.g.doom_one_plugin_startify = true
-        --        vim.g.doom_one_plugin_whichkey = false
-        --        vim.g.doom_one_plugin_indent_blankline = false
-        --        vim.g.doom_one_plugin_vim_illuminate = true
-        --        vim.g.doom_one_plugin_lspsaga = false
-        --    end,
-        --    config = function()
-        --        vim.cmd("colorscheme doom-one")
-        --    end,
-        --})
+        use('Shatur/neovim-ayu')
+
         ---------------------
         -- Editing Plugins --
         ---------------------
         
+        use('folke/zen-mode.nvim')
+        use('lewis6991/gitsigns.nvim')
         use('mbbill/undotree')
+        use('sudoerwx/vim-ray-so-beautiful')
+        use('onsails/lspkind.nvim')
         use('luochen1990/rainbow')
-        use('windwp/nvim-autopairs')
+        use('itchyny/vim-highlighturl')
         use({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
         })
-        --use('lukas-reineke/indent-blankline.nvim')
+        use {
+          'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+          requires = { {'nvim-lua/plenary.nvim'} }
+        }
+        use('lukas-reineke/indent-blankline.nvim')
+        use {
+            'numToStr/Comment.nvim',
+            config = function()
+                require('Comment').setup()
+            end
+        }
 
         -- LSP
-        use {'neoclide/coc.nvim', branch = 'release'}
+        use('neovim/nvim-lspconfig') -- Configurations for Nvim LSP
+        
+        
+
+        use({
+            "glepnir/lspsaga.nvim",
+            branch = "main",
+            config = function()
+                local saga = require("lspsaga")
+
+                saga.init_lsp_saga({
+
+                })
+            end,
+        })
+        use('windwp/nvim-autopairs')
+        use('windwp/nvim-ts-autotag')
+        use('Saecki/crates.nvim')
+        use 'simrat39/rust-tools.nvim'
+
+        -- Autocomplete
+        use('hrsh7th/nvim-cmp')
+        use('hrsh7th/cmp-buffer')
+        use('hrsh7th/cmp-path')
+        use('hrsh7th/cmp-nvim-lsp')
+
+        -- Snippets
+        use('L3MON4D3/LuaSnip')
+        use('saadparwaiz1/cmp_luasnip')
+        use('rafamadriz/friendly-snippets')
+
+        -- Dap
+        use('mfussenegger/nvim-dap')
+
     end
 })

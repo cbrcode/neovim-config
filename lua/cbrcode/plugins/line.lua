@@ -1,20 +1,73 @@
-require('lualine').setup({
-  options = {
-    theme = "auto",
-    component_separators = {'', ''},
-    section_separators = {'', ''},
-  },
-  sections = {
-    lualine_a = {{'filename', path = 1}},
-    lualine_b = {'branch', {
-      'diff',
-      color_added = 'green',
-      color_modified = 'yellow',
-      color_removed = 'red'
-    }},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {}
-  },
-})
+--require('lualine').setup({ options = {
+--    theme = "auto",
+--    component_separators = {'', ''},
+--    section_separators = { left = '', right = ''},
+--  },
+--  sections = {
+--    lualine_a = {{'filename', path = 1}},
+--    lualine_b = {'branch', {
+--      'diff',
+--      color_added = 'green',
+--      color_modified = 'yellow',
+--      color_removed = 'red'
+--    }},
+--    lualine_c = {},
+--    lualine_x = {},
+--    lualine_y = {},
+--    lualine_z = {}
+--  },
+--})
+
+--local progress = function()
+--	local current_line = vim.fn.line(".")
+--	local total_lines = vim.fn.line("$")
+--	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+--	local line_ratio = current_line / total_lines
+--	local index = math.ceil(line_ratio * #chars)
+--	return chars[index]
+--end
+
+--require('lualine').setup {
+--  options = {
+--    icons_enabled = true,
+--    theme = 'ayu',
+--    component_separators = { left = '', right = ''},
+--    section_separators = {'', ''},
+--    disabled_filetypes = {
+--      statusline = {},
+--      winbar = {},
+--    },
+--    ignore_focus = {},
+--    always_divide_middle = true,
+--    globalstatus = true,
+--    refresh = {
+--      statusline = 1000,
+--      tabline = 1000,
+--      winbar = 1000,
+--    }
+--  },
+--  sections = {
+--    lualine_a = {'mode'},
+--    lualine_b = {'branch', 'diagnostics'},
+--    lualine_c = {'filename'},
+--    lualine_x = {'fileformat', 'filetype'},
+--    lualine_y = {},
+--    lualine_z = {'location'}
+--  },
+--  inactive_sections = {
+--    lualine_a = {},
+--    lualine_b = {'branch'},
+--    lualine_c = {},
+--    lualine_x = {'location'},
+--    lualine_y = {},
+--    lualine_z = {}
+--  },
+--  tabline = {},
+--  winbar = {},
+--  inactive_winbar = {},
+--  extensions = {}
+--}
+--
+--require('feline').setup()
+
+require('staline').setup()
